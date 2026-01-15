@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+.Link {
+  @apply py-1.5 px-4 mx-1 font-medium rounded-md hover:bg-zinc-100;
+}
+
+.logoutBtn {
+  @apply bg-zinc-700 rounded-md py-1.5 px-4 mx-1 cursor-pointer font-medium text-zinc-100 hover:bg-zinc-950 hover:text-white;
+}
