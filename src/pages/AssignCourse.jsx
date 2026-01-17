@@ -12,21 +12,21 @@ const AssignCourse = () => {
     const fetchOptions = async () => {
       const sQuery = query(
         collection(db, "users"),
-        where("role", "==", "student")
+        where("role", "==", "student"),
       );
       const sSnap = await getDocs(sQuery);
       setStudents(
         sSnap.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        }))
+        })),
       );
       const cSnap = await getDocs(collection(db, "courses"));
       setCourses(
         cSnap.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        }))
+        })),
       );
     };
     fetchOptions();
@@ -48,10 +48,16 @@ const AssignCourse = () => {
   //   ====
   return (
     <>
-      <div>
-        <h1>Assign Course to Student</h1>
-        <form onSubmit={handleAssign}>
+      <div className="flex flex-col w-150 mx-auto pt-14">
+        <h1 className="font-bold text-3xl text-center">
+          Assign Course to Student
+        </h1>
+        <form
+          onSubmit={handleAssign}
+          className="flex flex-col pt-10 gap-2 p-2 w-100 mx-auto"
+        >
           <select
+            className="border px-5 py-2 font-medium rounded-lg border-zinc-500"
             value={selectedStudent}
             onChange={(e) => setSelectedStudent(e.target.value)}
             required
@@ -64,6 +70,7 @@ const AssignCourse = () => {
             ))}
           </select>
           <select
+            className="border px-5 py-2 font-medium rounded-lg border-zinc-500"
             value={selectedCourse}
             onChange={(e) => setSelectedCourse(e.target.value)}
             required
@@ -75,7 +82,9 @@ const AssignCourse = () => {
               </option>
             ))}
           </select>
-          <button>Assign</button>
+          <button className="bg-blue-700 font-medium py-2 rounded-lg cursor-pointer hover:bg-blue-800 text-white mt-8 select-none">
+            Assign
+          </button>
         </form>
       </div>
     </>

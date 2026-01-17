@@ -30,14 +30,22 @@ const CourseList = () => {
   //   --
   return (
     <>
-      <div>
-        <h1>All Courses</h1>
-        <Link to="/courses/add">Add New Course</Link>
+      <div className="flex flex-col w-150 mx-auto pt-10">
+        <h1 className="font-bold text-3xl text-center">All Courses</h1>
+        <Link
+          to="/courses/add"
+          className="bg-blue-700 font-medium py-2 rounded-lg cursor-pointer w-fit px-4 mx-auto hover:bg-blue-800 text-white my-8"
+        >
+          Add New Course
+        </Link>
         <ul>
           {courses &&
             courses.map((course) => (
-              <li key={course.id}>
-                <span>
+              <li
+                key={course.id}
+                className="bg-zinc-100 border flex flex-col gap-3 border-zinc-300 p-5 rounded-lg"
+              >
+                <span className="font-bold text-lg">
                   {course.name} - {course.duration}
                 </span>
                 <span>{course.description}</span>

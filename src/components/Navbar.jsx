@@ -19,8 +19,10 @@ const Navbar = () => {
 
   return (
     <>
-      <nav>
-        <h1>IMS Project</h1>
+      <h1 className="font-bold text-3xl p-5 pb-10 text-center select-none">
+        Institute Management System
+      </h1>
+      <nav className="flex justify-center gap-3 select-none">
         {/* Admin Links */}
         {role === "admin" && (
           <>

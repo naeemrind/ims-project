@@ -30,7 +30,7 @@ const App = () => {
             setUser({
               user: { email: user.email, uid: user.uid },
               role: docSnap.data().role,
-            })
+            }),
           );
         }
       } else {

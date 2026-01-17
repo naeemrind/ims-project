@@ -19,7 +19,7 @@ const MyCourses = () => {
       if (!user) return;
       const q = query(
         collection(db, "enrollments"),
-        where("studentId", "==", user.uid)
+        where("studentId", "==", user.uid),
       );
       const enrollmentSnap = await getDocs(q);
       const coursePromises = enrollmentSnap.docs.map(async (enrollment) => {
@@ -36,13 +36,18 @@ const MyCourses = () => {
   //   ==========
   return (
     <>
-      <div>
-        <h1>My Enrolled Courses</h1>
+      <div className="flex flex-col w-100 mx-auto pt-20">
+        <h1 className="font-bold text-3xl text-center">My Enrolled Courses</h1>
         {myCourses.map((course) => (
-          <li key={course.id}>
+          <li
+            key={course.id}
+            className="bg-zinc-50 border rounded-lg border-zinc-300 p-6 gap-3 items-start flex flex-col justify-center mt-8"
+          >
             <span>
-              {" "}
-              {course.name} - {course.duration}{" "}
+              <strong>Name:</strong> &nbsp; {course.name}
+            </span>
+            <span>
+              <strong>Duration:</strong> &nbsp; {course.duration}
             </span>
           </li>
         ))}
