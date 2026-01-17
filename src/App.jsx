@@ -125,6 +125,9 @@ const App = () => {
           {/* Redirection for unknown route */}
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
+        <footer className="bg-slate-100 text-sm text-slate-600 p-3 fixed bottom-0 w-full text-center">
+          By: Naeem Rind
+        </footer>
       </div>
     </>
   );
